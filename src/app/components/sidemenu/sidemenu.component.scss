@@ -1,0 +1,99 @@
+// Estilização geral da sidebar
+.sidebar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 240px;
+    height: 100%;
+    padding: 40px 10px 30px 5px;
+    border-right: 1px solid #435663;
+    transition: all 0.35s;
+}
+
+// Estilização do cabeçalho da sidebar
+.sidebar-header {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.logo-img {
+    width: 48px;
+    min-height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s;
+    margin-left: 20px;
+}
+
+.logo-img:hover {
+    transform: scale(1.5);
+}
+
+// Estilização do conteúdo da sidebar
+
+.sidebar ion-button {
+    --background: transparent;
+    --box-shadow: none;
+    height: 60px;
+    color: black;
+    border: 0;
+    font-family: inherit;
+    text-transform: capitalize;
+}
+
+.sidebar ion-button > span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 16px 0 12px;
+    border-radius: 24px;
+    line-height: 1;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.sidebar ion-button:hover > span {
+    background: #87BAC3;
+}
+
+.sidebar ion-button i {
+    position: relative;
+    font-size: 28px;
+    transition: 0.2s;
+}
+
+.sidebar > nav {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+}
+
+// Ajustando tamanho da sidebar
+@media (width < 920px) {
+    .sidebar-header span {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .sidebar {
+        width: 104px;
+    }
+
+    .sidebar ion-button > span{
+        width: 50px;
+    }
+
+    .sidebar ion-button > span > span {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
