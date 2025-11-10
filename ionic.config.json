@@ -1,0 +1,7 @@
+{
+  "name": "fotografando-olhares",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
