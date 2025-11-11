@@ -32,6 +32,13 @@
         <span>Laudos</span>
       </span>
     </ion-button>
+    <!-- Botão: Configurações do sistema -->
+    <ion-button [routerLink]="['/sistema']" routerLinkActive="router-link-active" >
+      <span>
+        <i class="material-symbols-outlined">settings</i>
+        <span>Sistema</span>
+      </span>
+    </ion-button>
     <!-- Botão: Deslogar -->
     <ion-button (click)="LogOut()">
       <span>
