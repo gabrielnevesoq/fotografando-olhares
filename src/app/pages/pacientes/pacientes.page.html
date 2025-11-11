@@ -6,13 +6,18 @@
     <h1>Fotografando Olhares | Pacientes</h1>
     <section>
       <ion-card>
+        <ion-card-title>
+          <ion-searchbar placeholder="Buscar pacientes..." [(ngModel)]="termo_pesquisa" (ionInput)="FilterPacientes()" animated="true"></ion-searchbar>
+          <ion-buttons>
+            <ion-button>
+              <span>
+                <span><i class="material-symbols-outlined">add</i></span>
+                <span>Novo paciente</span>
+              </span>
+            </ion-button>
+          </ion-buttons>
+        </ion-card-title>
         <ion-card-content>
-          <ion-button>
-            <span>
-              <span><i class="material-symbols-outlined">add</i></span>
-              <span>Novo paciente</span>
-            </span>
-          </ion-button>
           <table>
             <thead>
               <tr>
@@ -28,7 +33,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of pacientes">
+              <tr *ngFor="let item of pacientes_filtrados">
                 <td>{{item.id}}</td>
                 <td>{{item.nome}}</td>
                 <td>{{item.sexo}}</td>
@@ -41,6 +46,10 @@
               </tr>
             </tbody>
           </table>
+          <!-- Mensagem quando não houver resultados -->
+          <div *ngIf="pacientes_filtrados.length === 0" class="ion-text-center ion-padding">
+            <p>Nenhum paciente encontrado.</p>
+          </div>
         </ion-card-content>
       </ion-card>
     </section>
