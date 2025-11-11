@@ -8,6 +8,8 @@ import { PacientesPageRoutingModule } from './pacientes-routing.module';
 
 import { PacientesPage } from './pacientes.page';
 import { SidemenuComponent } from 'src/app/components/sidemenu/sidemenu.component';
+import { AlertComponent } from 'src/app/components/alert/alert.component';
+import { ModalPacientesComponent } from 'src/app/components/modal-pacientes/modal-pacientes.component';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { SidemenuComponent } from 'src/app/components/sidemenu/sidemenu.componen
     FormsModule,
     IonicModule,
     PacientesPageRoutingModule,
-    SidemenuComponent
+    SidemenuComponent,
+    AlertComponent,
+    ModalPacientesComponent
   ],
   declarations: [PacientesPage]
 })

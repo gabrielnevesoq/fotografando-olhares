@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Paciente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="FecharModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section>
+    <ion-input  fill="outline" labelPlacement="floating" label="Nome"></ion-input>
+    <ion-select fill="outline" labelPlacement="floating" label="Sexo">
+      <ion-select-option>F</ion-select-option>
+      <ion-select-option>M</ion-select-option>
+    </ion-select>
+    <ion-input  fill="outline" labelPlacement="floating" label="CPF" ></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="CNS" ></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Data de Nascimento"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Remédios"></ion-input>
+    <ion-select fill="outline" labelPlacement="floating" label="Insulina">
+      <ion-select-option>Sim</ion-select-option>
+      <ion-select-option>Não</ion-select-option>
+    </ion-select>
+    <ion-select fill="outline" labelPlacement="floating" label="Tabagista">
+      <ion-select-option>Sim</ion-select-option>
+      <ion-select-option>Não</ion-select-option>
+    </ion-select>
+    <ion-input  fill="outline" labelPlacement="floating" label="Último Exame"></ion-input>
+    <ion-button (click)="InsertPaciente()">cadastrar</ion-button>
+  </section>
+</ion-content>

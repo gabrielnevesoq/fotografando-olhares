@@ -9,7 +9,7 @@
         <ion-card-title>
           <ion-searchbar placeholder="Buscar pacientes..." [(ngModel)]="termo_pesquisa" (ionInput)="FilterPacientes()" animated="true"></ion-searchbar>
           <ion-buttons>
-            <ion-button>
+            <ion-button (click)="AbrirModal()">
               <span>
                 <span><i class="material-symbols-outlined">add</i></span>
                 <span>Novo paciente</span>

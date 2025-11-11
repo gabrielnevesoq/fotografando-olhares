@@ -1,0 +1,30 @@
+ion-header {
+    ion-toolbar {
+        font-family: var(--font-family);
+        --background: #53629E;
+        color: white;
+        ion-button {
+            --background: #FE6244;
+            color: white;
+        }
+    }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+
+    ion-input, ion-select {
+        font-family: var(--font-family);
+    }
+
+    ion-button {
+        width: 100%;
+        --box-shadow: none;
+        margin: 0;
+        font-family: var(--font-family);
+        --background: #658C58;
+    }
+}

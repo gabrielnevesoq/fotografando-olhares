@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalPacientesComponent } from 'src/app/components/modal-pacientes/modal-pacientes.component';
 import { Supabase } from 'src/app/services/supabase';
 
 @Component({
@@ -9,7 +11,7 @@ import { Supabase } from 'src/app/services/supabase';
   providers: [Supabase]
 })
 export class PacientesPage implements OnInit {
-  constructor(private supabase: Supabase) { }
+  constructor(private supabase: Supabase, private modalController: ModalController) { }
   ngOnInit() {
     this.GetPacientes();
     this.FilterPacientes();
@@ -46,4 +48,22 @@ export class PacientesPage implements OnInit {
       });
     }
   }
+
+  // Abrindo modal de cadastro
+    async AbrirModal() {
+      const modal = await this.modalController.create({
+        component: ModalPacientesComponent,
+        componentProps: {
+          nome: 'João' // Passando dados para o modal
+        },
+        cssClass: 'meu-modal-css' // Opcional: classe personalizada
+      });
+  
+      modal.present();
+  
+      const { data } = await modal.onWillDismiss(); // ou onDidDismiss()
+      if (data?.confirmado) {
+        console.log('Usuário confirmou:', data.mensagem);
+      }
+    }
 }
