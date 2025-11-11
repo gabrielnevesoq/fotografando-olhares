@@ -8,6 +8,7 @@ import { LaudosPageRoutingModule } from './laudos-routing.module';
 
 import { LaudosPage } from './laudos.page';
 import { SidemenuComponent } from 'src/app/components/sidemenu/sidemenu.component';
+import { ModalLaudoComponent } from 'src/app/components/modal-laudo/modal-laudo.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SidemenuComponent } from 'src/app/components/sidemenu/sidemenu.componen
     FormsModule,
     IonicModule,
     LaudosPageRoutingModule,
-    SidemenuComponent
+    SidemenuComponent,
+    ModalLaudoComponent
   ],
   declarations: [LaudosPage]
 })

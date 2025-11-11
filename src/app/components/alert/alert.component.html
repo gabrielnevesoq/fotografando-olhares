@@ -1,0 +1,25 @@
+<ion-content class="alerta-overlay" (click)="fecharBackdrop($event)">
+  <div class="alerta-card" (click)="$event.stopPropagation()" [@fadeScale]>
+    
+    <!-- Ícone -->
+    <div class="alerta-icon" [ngClass]="tipo">
+      <ion-icon [name]="getIcon()"></ion-icon>
+    </div>
+
+    <!-- Título -->
+    <h2 class="alerta-title">{{ titulo }}</h2>
+
+    <!-- Mensagem -->
+    <p class="alerta-message">{{ mensagem }}</p>
+
+    <!-- Botões -->
+    <div class="alerta-buttons">
+      <ion-button *ngIf="botaoCancelar" fill="clear" (click)="cancelar()">
+        {{ textoCancelar || 'Cancelar' }}
+      </ion-button>
+      <ion-button [color]="tipo === 'error' ? 'danger' : 'primary'" (click)="confirmar()">
+        {{ textoConfirmar || 'OK' }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

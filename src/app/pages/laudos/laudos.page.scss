@@ -1,17 +1,43 @@
-#funcionalidades {
-    ion-card {
-        ion-button span {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+// Card
+ion-card {
+    ion-button span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+ion-card-title {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+ion-searchbar {
+    width: 500px;
+    --box-shadow: none;
+    border: 1px solid lightgray;
+    border-radius: 50px;
+}
+
+ion-buttons {
+    ion-button {
+        background: #53629E;
+        --padding-start: 10px;
+        --padding-end: 10px;
+        --padding-top: 10px;
+        --padding-bottom: 10px;
+        border-radius: 30px;
+        border: 1px solid #53629E;
+        overflow: hidden;
+        color: white;
     }
 }
 
 // Tabela
 table {
     font-family: var(--font-family);
-    margin-top: 20px;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
@@ -28,4 +54,9 @@ th {
 
 td {
     padding: 15px;
+}
+
+.texto-cortado {
+  max-width: 300px; /* Ajuste conforme o espaço disponível */
+  text-align: justify;
 }

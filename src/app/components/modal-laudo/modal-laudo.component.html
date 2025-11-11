@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Laudo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="FecharModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section>
+    <ion-select label="Paciente" labelPlacement="floating" fill="outline" [(ngModel)]="id_paciente">
+      <ion-select-option *ngFor="let item of pacientes" value="{{item.id}}">{{item.nome}}</ion-select-option>
+    </ion-select>
+    <ion-input  label="Extensionista Responsável" labelPlacement="floating" fill="outline" [(ngModel)]="nome_responsavel"></ion-input>
+    <ion-input  label="Data de Preenchimento"     labelPlacement="floating" fill="outline" [(ngModel)]="data_preenchimento"></ion-input>
+    <ion-select label="Resultado do Laudo"        labelPlacement="floating" fill="outline" [(ngModel)]="resultado_laudo">
+      <ion-select-option>Retinopatia diabética</ion-select-option>
+      <ion-select-option>Retinopatia hipertensiva</ion-select-option>
+      <ion-select-option>Outra patologia</ion-select-option>
+    </ion-select>
+    <ion-input  label="Descrição" labelPlacement="floating" fill="outline" [(ngModel)]="descricao"></ion-input>
+    <ion-input  label="Outras Alterações" labelPlacement="floating" fill="outline" [(ngModel)]="outras_alteracoes"></ion-input>
+    <ion-button (click)="InsertLaudo()">cadastrar</ion-button>
+  </section>
+</ion-content>

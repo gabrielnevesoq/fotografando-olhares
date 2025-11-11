@@ -6,14 +6,19 @@
     <h1>Fotografando Olhares | Laudos</h1>
     <section id="funcionalidades">
       <ion-card>
-        <ion-card-content>
+        <ion-card-title>
+          <ion-searchbar placeholder="Buscar paciente..." [(ngModel)]="termo_pesquisa" (ionInput)="FilterLaudos()" animated="true"></ion-searchbar>
           <!-- Botões -->
-          <ion-button>
-            <span>
-              <span><i class="material-symbols-outlined">add</i></span>
-              <span>Novo Laudo</span>
-            </span>
-          </ion-button>
+          <ion-buttons>
+            <ion-button (click)="AbrirModal()">
+              <span>
+                <span><i class="material-symbols-outlined">add</i></span>
+                <span>Novo laudo</span>
+              </span>
+            </ion-button>
+          </ion-buttons>
+        </ion-card-title>
+        <ion-card-content>
           <!-- Tabela de laudos -->
           <table>
             <thead>
@@ -30,11 +35,11 @@
             <tbody>
               <tr *ngFor="let item of laudos">
                 <td>{{item.id}}</td>
-                <td>{{FilterPaciente(item.id_paciente)}}</td>
+                <td>{{PacienteName(item.id_paciente)}}</td>
                 <td>{{item.nome_responsavel}}</td>
                 <td>{{item.data_preenchimento}}</td>
                 <td>{{item.resultado_laudo}}</td>
-                <td>{{item.descricao}}</td>
+                <td class="texto-cortado">{{item.descricao}}</td>
                 <td>{{item.outras_alteracoes}}</td>
               </tr>
             </tbody>

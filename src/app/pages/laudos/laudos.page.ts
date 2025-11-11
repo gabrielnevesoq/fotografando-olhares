@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalLaudoComponent } from 'src/app/components/modal-laudo/modal-laudo.component';
 import { Supabase } from 'src/app/services/supabase';
 
 @Component({
@@ -9,7 +11,7 @@ import { Supabase } from 'src/app/services/supabase';
   providers: [Supabase]
 })
 export class LaudosPage implements OnInit {
-  constructor(private supabase: Supabase) { }
+  constructor(private supabase: Supabase, private modalController: ModalController) { }
   ngOnInit() {
     this.GetLaudos();
     this.GetPacientes();
@@ -37,10 +39,32 @@ export class LaudosPage implements OnInit {
     }
   }
 
-  // Filtrando o paciente
-  FilterPaciente(id: number) {
+  // Pegando o nome do paciente
+  PacienteName(id: number) {
     const paciente = this.pacientes.find(paciente => paciente.id === id);
     const nome = paciente ? paciente.nome : null;
-    return nome;
+    return nome
+  }
+
+  // Filtrando os laudos
+  public termo_pesquisa: string = "";
+  async FilterLaudos() {}
+
+  // Abrindo modal de cadastro
+  async AbrirModal() {
+    const modal = await this.modalController.create({
+      component: ModalLaudoComponent,
+      componentProps: {
+        nome: 'João' // Passando dados para o modal
+      },
+      cssClass: 'meu-modal-css' // Opcional: classe personalizada
+    });
+
+    modal.present();
+
+    const { data } = await modal.onWillDismiss(); // ou onDidDismiss()
+    if (data?.confirmado) {
+      console.log('Usuário confirmou:', data.mensagem);
+    }
   }
 }

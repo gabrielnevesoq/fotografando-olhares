@@ -43,4 +43,15 @@ export class Supabase {
   async GetLaudos() {
     return await this.supabase.from("tbl_laudos").select('*');
   }
+
+  // Cadastrando laudo novo
+  async InsertLaudo(
+    id_paciente: number, nome_responsavel: string, data_preenchimento: string, resultado_laudo: string, 
+    descricao: string, outras_alteracoes: string,
+  ) {
+    return await this.supabase.from("tbl_laudos").insert({
+      id_paciente: id_paciente, nome_responsavel: nome_responsavel, data_preenchimento: data_preenchimento,
+      resultado_laudo: resultado_laudo, descricao: descricao, outras_alteracoes: outras_alteracoes,
+    });
+  }
 }
