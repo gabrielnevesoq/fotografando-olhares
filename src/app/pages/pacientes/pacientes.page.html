@@ -1,0 +1,48 @@
+<ion-content>
+  <!-- Sidemenu -->
+  <app-sidemenu></app-sidemenu>
+  <!-- Conteúdo da página abaixo -->
+  <main class="main">
+    <h1>Fotografando Olhares | Pacientes</h1>
+    <section>
+      <ion-card>
+        <ion-card-content>
+          <ion-button>
+            <span>
+              <span><i class="material-symbols-outlined">add</i></span>
+              <span>Novo paciente</span>
+            </span>
+          </ion-button>
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>CPF</th>
+                <th>CNS</th>
+                <th>Data de Nascimento</th>
+                <th>Remédios</th>
+                <th>Insulina</th>
+                <th>Tabagista</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of pacientes">
+                <td>{{item.id}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.sexo}}</td>
+                <td>{{item.cpf}}</td>
+                <td>{{item.cns}}</td>
+                <td>{{item.data_nascimento}}</td>
+                <td>{{item.remedios}}</td>
+                <td>{{item.insulina}}</td>
+                <td>{{item.tabagista}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-card-content>
+      </ion-card>
+    </section>
+  </main>
+</ion-content>
