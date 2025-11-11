@@ -1,0 +1,31 @@
+#funcionalidades {
+    ion-card {
+        ion-button span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
+
+// Tabela
+table {
+    font-family: var(--font-family);
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #305669;
+    color: white;
+}
+
+th {
+    padding: 20px;
+}
+
+td {
+    padding: 15px;
+}

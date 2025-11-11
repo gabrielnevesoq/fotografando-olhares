@@ -10,6 +10,7 @@
     padding: 40px 10px 30px 5px;
     border-right: 1px solid #435663;
     transition: all 0.35s;
+    font-family: var(--font-family);
 }
 
 // Estilização do cabeçalho da sidebar
@@ -25,6 +26,7 @@
 .logo-img {
     width: 48px;
     min-height: 48px;
+    max-height: 48px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.4s;
@@ -36,7 +38,6 @@
 }
 
 // Estilização do conteúdo da sidebar
-
 .sidebar ion-button {
     --background: transparent;
     --box-shadow: none;
@@ -45,6 +46,10 @@
     border: 0;
     font-family: inherit;
     text-transform: capitalize;
+}
+
+.sidebar ion-button:last-child > span {
+    background: #FE6244;
 }
 
 .sidebar ion-button > span {

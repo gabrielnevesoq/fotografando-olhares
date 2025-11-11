@@ -1,35 +1,42 @@
 <aside class="sidebar">
-  <header class="sidebar-header">
-    <img class="logo-img" src="https://sujeitoprogramador.com/steve.png" alt="Foto do Usuário">
-    <span>aaa</span>
+  <header class="sidebar-header" *ngFor="let item of user_data">
+    <img class="logo-img" src="{{item.foto}}" alt="Foto do Usuário">
+    <span>{{item.nome}}</span>
   </header>
   <nav>
     <!-- Botão: Página inicial -->
-    <ion-button>
+    <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active" >
       <span>
         <i class="material-symbols-outlined">home_app_logo</i>
         <span>Início</span>
       </span>
     </ion-button>
     <!-- Botão: Verificar histórico de consultas -->
-    <ion-button>
+    <ion-button [routerLink]="['/consultas']" routerLinkActive="router-link-active">
       <span>
         <i class="material-symbols-outlined">amend</i>
         <span>Consultas</span>
       </span>
     </ion-button>
     <!-- Botão: Verificar pacientes existentes -->
-    <ion-button>
+    <ion-button [routerLink]="['/pacientes']" routerLinkActive="router-link-active" >
       <span>
         <i class="material-symbols-outlined">article_person</i>
         <span>Pacientes</span>
       </span>
     </ion-button>
     <!-- Botão: Verificar laudos existentes -->
-    <ion-button>
+    <ion-button [routerLink]="['/laudos']" routerLinkActive="router-link-active" >
       <span>
         <i class="material-symbols-outlined">preliminary</i>
         <span>Laudos</span>
+      </span>
+    </ion-button>
+    <!-- Botão: Deslogar -->
+    <ion-button (click)="LogOut()">
+      <span>
+        <i class="material-symbols-outlined">logout</i>
+        <span>Sair</span>
       </span>
     </ion-button>
   </nav>

@@ -1,0 +1,46 @@
+<ion-content>
+  <!-- Sidemenu -->
+  <app-sidemenu></app-sidemenu>
+  <!-- Conteúdo da página abaixo -->
+  <main class="main">
+    <h1>Fotografando Olhares | Laudos</h1>
+    <section id="funcionalidades">
+      <ion-card>
+        <ion-card-content>
+          <!-- Botões -->
+          <ion-button>
+            <span>
+              <span><i class="material-symbols-outlined">add</i></span>
+              <span>Novo Laudo</span>
+            </span>
+          </ion-button>
+          <!-- Tabela de laudos -->
+          <table>
+            <thead>
+              <tr>
+                <th>Id Laudo</th>
+                <th>Paciente</th>
+                <th>Responsável</th>
+                <th>Data do Preenchimento</th>
+                <th>Resultado</th>
+                <th>Descrição</th>
+                <th>Outras Alterações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of laudos">
+                <td>{{item.id}}</td>
+                <td>{{FilterPaciente(item.id_paciente)}}</td>
+                <td>{{item.nome_responsavel}}</td>
+                <td>{{item.data_preenchimento}}</td>
+                <td>{{item.resultado_laudo}}</td>
+                <td>{{item.descricao}}</td>
+                <td>{{item.outras_alteracoes}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-card-content>
+      </ion-card>
+    </section>
+  </main>
+</ion-content>

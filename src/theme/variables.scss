@@ -1,8 +1,17 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+    --font-family: "JetBrains Mono";
+}
+
 ion-content {
     --background: white;
     color: black;
+    font-family: var(--font-family);
+}
+
+ion-button {
+    font-family: var(--font-family);
 }
 
 // Estilização do main
