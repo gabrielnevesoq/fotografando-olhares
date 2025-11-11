@@ -9,24 +9,24 @@
 
 <ion-content>
   <section>
-    <ion-input  fill="outline" labelPlacement="floating" label="Nome"></ion-input>
-    <ion-select fill="outline" labelPlacement="floating" label="Sexo">
+    <ion-input  fill="outline" labelPlacement="floating" label="Nome" [(ngModel)]="nome_paciente"></ion-input>
+    <ion-select fill="outline" labelPlacement="floating" label="Sexo" [(ngModel)]="sexo">
       <ion-select-option>F</ion-select-option>
       <ion-select-option>M</ion-select-option>
     </ion-select>
-    <ion-input  fill="outline" labelPlacement="floating" label="CPF" ></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="CNS" ></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="Data de Nascimento"></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="Remédios"></ion-input>
-    <ion-select fill="outline" labelPlacement="floating" label="Insulina">
+    <ion-input  fill="outline" labelPlacement="floating" label="CPF" [(ngModel)]="cpf"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="CNS" [(ngModel)]="cns"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Data de Nascimento" [(ngModel)]="data_nascimento"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Remédios" [(ngModel)]="remedios"></ion-input>
+    <ion-select fill="outline" labelPlacement="floating" label="Insulina" [(ngModel)]="insulina">
       <ion-select-option>Sim</ion-select-option>
       <ion-select-option>Não</ion-select-option>
     </ion-select>
-    <ion-select fill="outline" labelPlacement="floating" label="Tabagista">
+    <ion-select fill="outline" labelPlacement="floating" label="Tabagista" [(ngModel)]="tabagista">
       <ion-select-option>Sim</ion-select-option>
       <ion-select-option>Não</ion-select-option>
     </ion-select>
-    <ion-input  fill="outline" labelPlacement="floating" label="Último Exame"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Último Exame" [(ngModel)]="ultimo_exame"></ion-input>
     <ion-button (click)="InsertPaciente()">cadastrar</ion-button>
   </section>
 </ion-content>

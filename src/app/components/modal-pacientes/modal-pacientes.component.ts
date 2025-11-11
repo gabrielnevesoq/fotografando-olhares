@@ -47,26 +47,25 @@ constructor(private modalController: ModalController, private supabase: Supabase
   }
 
   // Cadastrando laudo novo
-  public id_paciente       : number = 0;
-  public nome_responsavel  : string = "";
-  public data_preenchimento: string = "";
-  public resultado_laudo   : string = "";
-  public descricao         : string = "";
-  public outras_alteracoes : string = "";
+  public nome_paciente : string = "";
+  public sexo : string = "";
+  public cpf  : string = "";
+  public cns  : string = "";
+  public data_nascimento : string = "";
+  public remedios  : string = "";
+  public insulina  : string = "";
+  public tabagista : string = "";
+  public ultimo_exame : string = "";
   async InsertPaciente() {
     // Mostra loading (opcional, mas recomendado)
     const loading = await this.loadingController.create({
-      message: 'Salvando laudo...',
+      message: 'Salvando paciente...',
     });
     await loading.present();
 
-    const { error } = await this.supabase.InsertLaudo(
-      this.id_paciente,
-      this.nome_responsavel,
-      this.data_preenchimento,
-      this.resultado_laudo,
-      this.descricao,
-      this.outras_alteracoes,
+    const { error } = await this.supabase.InsertPaciente(
+      this.nome_paciente, this.sexo, this.cpf, this.cns,
+      this.data_nascimento, this.remedios, this.insulina, this.tabagista, this.ultimo_exame
     );
 
     // Fecha o loading
