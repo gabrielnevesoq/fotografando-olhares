@@ -49,7 +49,7 @@
       <ion-select-option>Outra Patologia</ion-select-option>
       <ion-select-option>Nenhum</ion-select-option>
     </ion-select>
-    <ion-input  fill="outline" labelPlacement="stacked" *ngIf="diagnostico === 'Outra Patologia'" [(ngModel)]="outra_patologia">
+    <ion-input  fill="outline" labelPlacement="floating" *ngIf="diagnostico.includes('Outra Patologia')" [(ngModel)]="outra_patologia">
       <div slot="label">
         <span>Insira a Patologia </span>
         <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
