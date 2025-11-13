@@ -137,7 +137,7 @@ constructor(private modalController: ModalController, private supabase: Supabase
         tipo: 'success',
         botaoCancelar: false
       });
-
+      window.location.reload();
       // Opcional: limpar formulário ou navegar
     }
   }
