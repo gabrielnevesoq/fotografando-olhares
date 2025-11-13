@@ -50,20 +50,17 @@ export class PacientesPage implements OnInit {
   }
 
   // Abrindo modal de cadastro
-    async AbrirModal() {
-      const modal = await this.modalController.create({
-        component: ModalPacientesComponent,
-        componentProps: {
-          nome: 'João' // Passando dados para o modal
-        },
-        cssClass: 'meu-modal-css' // Opcional: classe personalizada
-      });
-  
-      modal.present();
-  
-      const { data } = await modal.onWillDismiss(); // ou onDidDismiss()
-      if (data?.confirmado) {
-        console.log('Usuário confirmou:', data.mensagem);
-      }
+  async AbrirModal() {
+    const modal = await this.modalController.create({
+      component: ModalPacientesComponent,
+      cssClass: 'meu-modal-css' // Opcional: classe personalizada
+    });
+
+    modal.present();
+
+    const { data } = await modal.onWillDismiss(); // ou onDidDismiss()
+    if (data?.confirmado) {
+      console.log('Usuário confirmou:', data.mensagem);
     }
+  }
 }

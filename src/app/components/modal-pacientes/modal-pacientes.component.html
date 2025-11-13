@@ -9,20 +9,64 @@
 
 <ion-content>
   <section>
-    <ion-input  fill="outline" labelPlacement="floating" label="Nome" [(ngModel)]="nome_paciente"></ion-input>
-    <ion-select fill="outline" labelPlacement="floating" label="Sexo" [(ngModel)]="sexo">
+    <ion-input  fill="outline" labelPlacement="floating" [(ngModel)]="nome_paciente">
+      <div slot="label">
+        <span>Nome </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
+    </ion-input>
+    <ion-select fill="outline" labelPlacement="floating" [(ngModel)]="sexo">
+      <div slot="label">
+        <span>Sexo </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
       <ion-select-option>F</ion-select-option>
       <ion-select-option>M</ion-select-option>
     </ion-select>
-    <ion-input  fill="outline" labelPlacement="floating" label="CPF" [(ngModel)]="cpf"></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="CNS" [(ngModel)]="cns"></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="Data de Nascimento" [(ngModel)]="data_nascimento"></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" label="Remédios" [(ngModel)]="remedios"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" [(ngModel)]="cpf" (ionInput)="onCpfInput($event)" max="11">
+      <div slot="label">
+        <span>CPF </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
+    </ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="CNS" [(ngModel)]="cns" (ionInput)="formatarCNS($event)" maxlength="19"></ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" [(ngModel)]="data_nascimento" (ionInput)="formatarDataNascimento($event)">
+      <div slot="label">
+        <span>Data de Nascimento </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
+    </ion-input>
+    <ion-input  fill="outline" labelPlacement="floating" label="Medicação" [(ngModel)]="remedios"></ion-input>
+    <ion-select fill="outline" [(ngModel)]="diagnostico" labelPlacement="floating">
+      <div slot="label">
+        <span>Diagnóstico </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
+      <ion-select-option>DM 1 - Diabétes Méllitus | Tipo 1</ion-select-option>
+      <ion-select-option>DM 2 - Diabétes Méllitus | Tipo 2</ion-select-option>
+      <ion-select-option>HAS - Hipertensão Arterial Sistêmica</ion-select-option>
+      <ion-select-option>Hipercolesterolemia</ion-select-option>
+      <ion-select-option>Outra Patologia</ion-select-option>
+      <ion-select-option>Nenhum</ion-select-option>
+    </ion-select>
+    <ion-input  fill="outline" labelPlacement="stacked" *ngIf="diagnostico === 'Outra Patologia'" [(ngModel)]="outra_patologia">
+      <div slot="label">
+        <span>Insira a Patologia </span>
+        <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
+      </div>
+    </ion-input>
     <ion-select fill="outline" labelPlacement="floating" label="Insulina" [(ngModel)]="insulina">
       <ion-select-option>Sim</ion-select-option>
       <ion-select-option>Não</ion-select-option>
     </ion-select>
     <ion-select fill="outline" labelPlacement="floating" label="Tabagista" [(ngModel)]="tabagista">
+      <ion-select-option>Sim</ion-select-option>
+      <ion-select-option>Não</ion-select-option>
+    </ion-select>
+    <ion-select fill="outline" labelPlacement="floating" [(ngModel)]="atividade_fisica">
+      <div slot="label">
+        <span>Atividade Física </span>
+      </div>
       <ion-select-option>Sim</ion-select-option>
       <ion-select-option>Não</ion-select-option>
     </ion-select>

@@ -44,6 +44,9 @@
               </tr>
             </tbody>
           </table>
+          <div *ngIf="laudos.length === 0" class="ion-text-center ion-padding">
+            <p>Nenhum laudo encontrado.</p>
+          </div>
         </ion-card-content>
       </ion-card>
     </section>
