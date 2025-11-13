@@ -9,7 +9,11 @@
 
 <ion-content>
   <section>
-    <ion-select label="Paciente" labelPlacement="floating" fill="outline" [(ngModel)]="id_paciente">
+    <ion-select labelPlacement="floating" fill="outline" [(ngModel)]="id_paciente">
+      <div slot="label">
+        <span>Paciente </span>
+        <span style="color: red;">(Obrigatório)</span>
+      </div>
       <ion-select-option *ngFor="let item of pacientes" value="{{item.id}}">{{item.nome}}</ion-select-option>
     </ion-select>
     <ion-input  label="Extensionista Responsável" labelPlacement="floating" fill="outline" [(ngModel)]="nome_responsavel"></ion-input>

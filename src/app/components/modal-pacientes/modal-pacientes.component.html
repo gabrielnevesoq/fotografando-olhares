@@ -30,7 +30,7 @@
       </div>
     </ion-input>
     <ion-input  fill="outline" labelPlacement="floating" label="CNS" [(ngModel)]="cns" (ionInput)="formatarCNS($event)" maxlength="19"></ion-input>
-    <ion-input  fill="outline" labelPlacement="floating" [(ngModel)]="data_nascimento" (ionInput)="formatarDataNascimento($event)">
+    <ion-input  fill="outline" labelPlacement="floating" [(ngModel)]="data_nascimento" (ionInput)="formatarData($event)">
       <div slot="label">
         <span>Data de Nascimento </span>
         <span class="obrigatorio" style="color: red;">(Obrigatório)</span>

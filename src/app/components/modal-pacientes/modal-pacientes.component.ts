@@ -191,49 +191,51 @@ constructor(private modalController: ModalController, private supabase: Supabase
   }
 
   // Data de nascimento
-  formatarDataNascimento(event: any) {
-    let valor = event.target.value;
+  formatarData(event: any) {
+    const input = event.target as HTMLIonInputElement;
+    let valor = this.data_nascimento.replace(/\D/g, '');
 
-    // Remove tudo que não for número
-    valor = valor.replace(/\D/g, '');
-
-    // Limita a 8 dígitos
-    valor = valor.substring(0, 8);
-
-    // Aplica a máscara: DD/MM/AAAA
-    if (valor.length > 2) {
-      valor = valor.substring(0, 2) + '/' + valor.substring(2);
-    }
-    if (valor.length > 5) {
-      valor = valor.substring(0, 5) + '/' + valor.substring(5, 9);
+    if (valor.length > 8) {
+      valor = valor.substring(0, 8);
     }
 
-    // Validação parcial (evita entradas inválidas)
-    const partes = valor.split('/');
-    let dia = partes[0] ? parseInt(partes[0], 10) : 0;
-    let mes = partes[1] ? parseInt(partes[1], 10) : 0;
-    let ano = partes[2] ? parseInt(partes[2], 10) : 0;
+    let formatado = '';
+    for (let i = 0; i < valor.length; i++) {
+      if (i === 2 || i === 4) formatado += '/';
+      formatado += valor[i];
+    }
 
-    const anoAtual = new Date().getFullYear();
+    // Validação parcial
+    if (valor.length >= 2) {
+      const dia = parseInt(valor.substring(0, 2), 10);
+      if (dia > 31) valor = '31' + valor.substring(2);
+    }
+    if (valor.length >= 4) {
+      const mes = parseInt(valor.substring(2, 4), 10);
+      if (mes > 12) valor = valor.substring(0, 2) + '12' + valor.substring(4);
+    }
+    if (valor.length === 8) {
+      const ano = parseInt(valor.substring(4, 8), 10);
+      const anoAtual = new Date().getFullYear();
+      if (ano > anoAtual) valor = valor.substring(0, 4) + anoAtual.toString();
+      if (ano < 1900) valor = valor.substring(0, 4) + '1900';
+    }
 
-    // Valida dia (01-31)
-    if (dia > 31) dia = 31;
-    if (dia < 1) dia = 1;
+    // Reconstrói com máscara
+    formatado = '';
+    for (let i = 0; i < valor.length; i++) {
+      if (i === 2 || i === 4) formatado += '/';
+      formatado += valor[i];
+    }
 
-    // Valida mês (01-12)
-    if (mes > 12) mes = 12;
-    if (mes < 1) mes = 1;
+    input.value = formatado;
 
-    // Valida ano (1900 até ano atual)
-    if (ano > anoAtual) ano = anoAtual;
-    if (ano < 1900) ano = 1900;
-
-    // Reconstrói com validação
-    let novaData = '';
-    if (valor.length >= 1) novaData += dia.toString().padStart(2, '0');
-    if (valor.length >= 3) novaData += '/' + mes.toString().padStart(2, '0');
-    if (valor.length >= 6) novaData += '/' + ano.toString().padStart(4, '0');
-
-    event.target.value = novaData;
+    // Corrige o cursor com tipagem correta
+    setTimeout(() => {
+      input.getInputElement().then((el: HTMLInputElement) => {
+        const pos = formatado.length;
+        el.setSelectionRange(pos, pos);
+      });
+    }, 0);
   }
 }
