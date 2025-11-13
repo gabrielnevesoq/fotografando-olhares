@@ -115,7 +115,7 @@ constructor(private modalController: ModalController, private supabase: Supabase
 
     const { error } = await this.supabase.InsertPaciente(
       this.nome_paciente, this.sexo, this.cpf, this.cns, this.data_nascimento, this.remedios, this.diagnostico,
-      this.insulina, this.tabagista, this.atividade_fisica, this.ultimo_exame
+      this.insulina, this.tabagista, this.atividade_fisica, this.ultimo_exame, this.tempo_diabetes, this.tempo_hipertensao
     );
 
     // Fecha o loading
@@ -251,6 +251,7 @@ constructor(private modalController: ModalController, private supabase: Supabase
     }, 0);
   }
 
+  // Função para achar uma palavra num array
   FindString(text: string): boolean {
     if (!this.diagnostico || !Array.isArray(this.diagnostico)) return false;
 

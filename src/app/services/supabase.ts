@@ -58,11 +58,13 @@ export class Supabase {
   // Cadastrando paciente novo
   async InsertPaciente(
     nome: string, sexo: string, cpf: string, cns: string, data_nascimento: string, remedios: string, diagnostico: string,
-    insulina: string, tabagista: string, atividade_fisica: string, ultimo_exame: string,
+    insulina: string, tabagista: string, atividade_fisica: string, ultimo_exame: string, 
+    tempo_diabetes: string, tempo_hipertensao: string
   ) {
     return await this.supabase.from("tbl_pacientes").insert({
       nome: nome, sexo: sexo, cpf: cpf, cns: cns, data_nascimento: data_nascimento, remedios: remedios, diagnostico: diagnostico,
       insulina: insulina, tabagista: tabagista, atividade_fisica: atividade_fisica, ultimo_exame: ultimo_exame,
+      tempo_diabetes: tempo_diabetes, tempo_hipertensao: tempo_hipertensao
     })
   }
 }
