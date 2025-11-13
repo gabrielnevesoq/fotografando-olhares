@@ -70,7 +70,17 @@
       <ion-select-option>Sim</ion-select-option>
       <ion-select-option>Não</ion-select-option>
     </ion-select>
-    <ion-input  fill="outline" labelPlacement="floating" label="Último Exame" [(ngModel)]="ultimo_exame"></ion-input>
+    <ion-select  fill="outline" labelPlacement="floating" [(ngModel)]="ultimo_exame">
+      <div slot="label">
+        <span>Último Exame Oftalmológico </span>
+        <span style="color: red;">(Obrigatório)</span>
+      </div>
+      <ion-select-option>< 6 meses</ion-select-option>
+      <ion-select-option>> 6 meses</ion-select-option>
+      <ion-select-option>1 á 5 anos</ion-select-option>
+      <ion-select-option>> 5 anos</ion-select-option>
+      <ion-select-option>Nunca fez</ion-select-option>
+    </ion-select>
     <ion-button (click)="InsertPaciente()">cadastrar</ion-button>
   </section>
 </ion-content>

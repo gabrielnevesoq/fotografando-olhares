@@ -94,6 +94,15 @@ constructor(private modalController: ModalController, private supabase: Supabase
     if (this.diagnostico === "Outra Patologia") {
       this.diagnostico = this.outra_patologia;
     }
+    if (this.ultimo_exame === "") {
+      await this.mostrarAlerta({
+        titulo: 'Erro ao salvar',
+        mensagem: 'Favor selecionar o último exame do paciente.',
+        tipo: 'error',
+        botaoCancelar: false
+      });
+      return;
+    }
 
     // Mostra loading (opcional, mas recomendado)
     const loading = await this.loadingController.create({

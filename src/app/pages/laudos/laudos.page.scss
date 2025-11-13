@@ -36,6 +36,15 @@ ion-buttons {
 }
 
 // Tabela
+.tabela-container {
+  width: 100%;
+  overflow-x: auto;           // Habilita scroll horizontal
+  -webkit-overflow-scrolling: touch; // Scroll suave no iOS
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
+}
+
 table {
     font-family: var(--font-family);
     width: 100%;
