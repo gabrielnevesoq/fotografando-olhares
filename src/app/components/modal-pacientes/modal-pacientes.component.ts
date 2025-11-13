@@ -94,6 +94,7 @@ constructor(private modalController: ModalController, private supabase: Supabase
     if (this.diagnostico === "Outra Patologia") {
       this.diagnostico = this.outra_patologia;
     }
+    // Tratativa: Ultimo exame
     if (this.ultimo_exame === "") {
       await this.mostrarAlerta({
         titulo: 'Erro ao salvar',

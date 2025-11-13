@@ -37,7 +37,7 @@
       </div>
     </ion-input>
     <ion-input  fill="outline" labelPlacement="floating" label="Medicação" [(ngModel)]="remedios"></ion-input>
-    <ion-select fill="outline" [(ngModel)]="diagnostico" labelPlacement="floating">
+    <ion-select fill="outline" [(ngModel)]="diagnostico" labelPlacement="floating" [multiple]="true">
       <div slot="label">
         <span>Diagnóstico </span>
         <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
