@@ -42,12 +42,30 @@
         <span>Diagnóstico </span>
         <span class="obrigatorio" style="color: red;">(Obrigatório)</span>
       </div>
-      <ion-select-option>DM 1 - Diabétes Méllitus | Tipo 1</ion-select-option>
-      <ion-select-option>DM 2 - Diabétes Méllitus | Tipo 2</ion-select-option>
+      <ion-select-option>DM 1 - Diabetes Méllitus | Tipo 1</ion-select-option>
+      <ion-select-option>DM 2 - Diabetes Méllitus | Tipo 2</ion-select-option>
       <ion-select-option>HAS - Hipertensão Arterial Sistêmica</ion-select-option>
       <ion-select-option>Hipercolesterolemia</ion-select-option>
       <ion-select-option>Outra Patologia</ion-select-option>
       <ion-select-option>Nenhum</ion-select-option>
+    </ion-select>
+    <ion-select fill="outline" labelPlacement="floating" [(ngModel)]="tempo_diabetes" *ngIf="FindString('diabetes')">
+      <div slot="label">
+        <span>Tempo de Diagnóstico de Diabetes </span>
+      </div>
+      <ion-select-option>< 1 ano</ion-select-option>
+      <ion-select-option>1 a 5 anos</ion-select-option>
+      <ion-select-option>5 a 10 anos</ion-select-option>
+      <ion-select-option>> 10 anos</ion-select-option>
+    </ion-select>
+    <ion-select fill="outline" labelPlacement="floating" [(ngModel)]="tempo_hipertensao" *ngIf="FindString('hipertensao')">
+      <div slot="label">
+        <span>Tempo de Diagnóstico de Hipertensão </span>
+      </div>
+      <ion-select-option>< 1 ano</ion-select-option>
+      <ion-select-option>1 a 5 anos</ion-select-option>
+      <ion-select-option>5 a 10 anos</ion-select-option>
+      <ion-select-option>> 10 anos</ion-select-option>
     </ion-select>
     <ion-input  fill="outline" labelPlacement="floating" *ngIf="diagnostico.includes('Outra Patologia')" [(ngModel)]="outra_patologia">
       <div slot="label">

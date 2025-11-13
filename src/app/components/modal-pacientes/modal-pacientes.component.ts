@@ -49,6 +49,8 @@ constructor(private modalController: ModalController, private supabase: Supabase
   public insulina     : string = "";
   public tabagista    : string = "";
   public ultimo_exame : string = "";
+  public tempo_diabetes: string = "";
+  public tempo_hipertensao: string = "";
   async InsertPaciente() {
     // Tratativa: Sem nome
     if (this.nome_paciente === "") {
@@ -247,5 +249,18 @@ constructor(private modalController: ModalController, private supabase: Supabase
         el.setSelectionRange(pos, pos);
       });
     }, 0);
+  }
+
+  FindString(text: string): boolean {
+    if (!this.diagnostico || !Array.isArray(this.diagnostico)) return false;
+
+    return this.diagnostico.some(item => {
+      if (typeof item !== 'string') return false;
+      return item
+        .toLowerCase()
+        .normalize('NFD') // Remove acentos
+        .replace(/[\u0300-\u036f]/g, '')
+        .includes(text);
+    });
   }
 }
