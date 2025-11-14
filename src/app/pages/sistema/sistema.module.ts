@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SistemaPageRoutingModule } from './sistema-routing.module';
 
 import { SistemaPage } from './sistema.page';
+import { SidemenuComponent } from 'src/app/components/sidemenu/sidemenu.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SistemaPageRoutingModule
+    SistemaPageRoutingModule,
+    SidemenuComponent
   ],
   declarations: [SistemaPage]
 })
