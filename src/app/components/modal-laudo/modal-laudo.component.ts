@@ -89,8 +89,7 @@ export class ModalLaudoComponent  implements OnInit {
         tipo: 'success',
         botaoCancelar: false
       });
-
-      // Opcional: limpar formulário ou navegar
+      window.location.reload();
     }
   }
 
@@ -122,5 +121,54 @@ export class ModalLaudoComponent  implements OnInit {
       info: 'Aqui vai uma informação importante.'
     };
     return msgs[tipo as keyof typeof msgs];
+  }
+
+  // Formatando data
+  formatarData(event: any) {
+    const input = event.target as HTMLIonInputElement;
+    let valor = this.data_preenchimento.replace(/\D/g, '');
+
+    if (valor.length > 8) {
+      valor = valor.substring(0, 8);
+    }
+
+    let formatado = '';
+    for (let i = 0; i < valor.length; i++) {
+      if (i === 2 || i === 4) formatado += '/';
+      formatado += valor[i];
+    }
+
+    // Validação parcial
+    if (valor.length >= 2) {
+      const dia = parseInt(valor.substring(0, 2), 10);
+      if (dia > 31) valor = '31' + valor.substring(2);
+    }
+    if (valor.length >= 4) {
+      const mes = parseInt(valor.substring(2, 4), 10);
+      if (mes > 12) valor = valor.substring(0, 2) + '12' + valor.substring(4);
+    }
+    if (valor.length === 8) {
+      const ano = parseInt(valor.substring(4, 8), 10);
+      const anoAtual = new Date().getFullYear();
+      if (ano > anoAtual) valor = valor.substring(0, 4) + anoAtual.toString();
+      if (ano < 1900) valor = valor.substring(0, 4) + '1900';
+    }
+
+    // Reconstrói com máscara
+    formatado = '';
+    for (let i = 0; i < valor.length; i++) {
+      if (i === 2 || i === 4) formatado += '/';
+      formatado += valor[i];
+    }
+
+    input.value = formatado;
+
+    // Corrige o cursor com tipagem correta
+    setTimeout(() => {
+      input.getInputElement().then((el: HTMLInputElement) => {
+        const pos = formatado.length;
+        el.setSelectionRange(pos, pos);
+      });
+    }, 0);
   }
 }

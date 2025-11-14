@@ -17,10 +17,12 @@
       <ion-select-option *ngFor="let item of pacientes" value="{{item.id}}">{{item.nome}}</ion-select-option>
     </ion-select>
     <ion-input  label="Extensionista Responsável" labelPlacement="floating" fill="outline" [(ngModel)]="nome_responsavel"></ion-input>
-    <ion-input  label="Data de Preenchimento"     labelPlacement="floating" fill="outline" [(ngModel)]="data_preenchimento"></ion-input>
+    <ion-input  label="Data de Preenchimento"     labelPlacement="floating" fill="outline" [(ngModel)]="data_preenchimento" (ionInput)="formatarData($event)"></ion-input>
     <ion-select label="Resultado do Laudo"        labelPlacement="floating" fill="outline" [(ngModel)]="resultado_laudo">
       <ion-select-option>Retinopatia diabética</ion-select-option>
       <ion-select-option>Retinopatia hipertensiva</ion-select-option>
+      <ion-select-option>Exame de Retinografia Normal</ion-select-option>
+      <ion-select-option>A qualidade das imagens enviadas não permitiu realizar o exame com segurança</ion-select-option>
       <ion-select-option>Outra patologia</ion-select-option>
     </ion-select>
     <ion-input  label="Descrição" labelPlacement="floating" fill="outline" [(ngModel)]="descricao"></ion-input>

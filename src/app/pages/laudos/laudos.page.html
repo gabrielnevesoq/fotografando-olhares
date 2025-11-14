@@ -34,7 +34,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of laudos">
+                <tr *ngFor="let item of laudos_filtrados">
                   <td>{{item.id}}</td>
                   <td>{{PacienteName(item.id_paciente)}}</td>
                   <td>{{item.nome_responsavel}}</td>
@@ -46,7 +46,7 @@
               </tbody>
             </table>
           </div>
-          <div *ngIf="laudos.length === 0" class="ion-text-center ion-padding">
+          <div *ngIf="laudos_filtrados.length === 0" class="ion-text-center ion-padding">
             <p>Nenhum laudo encontrado.</p>
           </div>
         </ion-card-content>
